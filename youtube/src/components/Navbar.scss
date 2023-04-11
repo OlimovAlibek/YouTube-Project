@@ -1,0 +1,26 @@
+
+  .inputmy {
+    background: url("../images/search.png") no-repeat;
+    background-position: right;
+
+  }
+
+  .myReact-icons {
+    background-color: white;
+
+  }
+
+  .hamburger {
+    background-color: white;
+    width: 200px;
+    .hamb {
+        background-color: red;
+    }
+  }
+
+  .Navbar {
+    position: fixed;
+    z-index: 2;
+    max-width: 1350px;
+    width: 100%;
+  }

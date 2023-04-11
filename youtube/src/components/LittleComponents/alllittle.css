@@ -1,0 +1,23 @@
+.littlecomponent {
+  display: inline-block;
+  width: 1118px;
+  padding-top: 300px;
+  padding-left: 450px;
+  font-size: 50px;
+  background-color: #1F2022;
+  color: white;
+  font-weight: bold;
+  float: right;
+}
+
+@media screen and (max-width: 640px) {
+  .littlecomponent {
+    max-width: 640px;
+    width: 100%;
+    height: 800px;
+    padding-left: 140px;
+    font-size: 30px;
+    padding-top: 400px;
+    margin: auto;
+  }
+}/*# sourceMappingURL=alllittle.css.map */

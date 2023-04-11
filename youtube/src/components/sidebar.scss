@@ -1,0 +1,30 @@
+.alt {
+}
+
+.Sidebar {
+    margin-top: 60px;
+    position: fixed;
+    overflow-y: scroll;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.Sidebar::-webkit-scrollbar{
+    display: none;
+  }
+
+  @media screen and (max-width:640px) {
+    .Sidebar {
+        position: sticky;
+        overflow: auto;
+        white-space: nowrap;
+        height: 60px;
+        overflow-y: hidden;
+    }
+    
+    
+  }
+
+
