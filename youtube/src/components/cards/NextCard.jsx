@@ -6,6 +6,9 @@ const NextCard = (props) => {
     
     const {id, data, title, name } = props
 
+
+    window.location.reload
+
   return (
     // <div className='videocard min-w-[250px]'>
     //                 <Iframe  className=' rounded-2xl' src={`https://www.youtube.com/embed/${id}`} ></Iframe>
@@ -32,7 +35,7 @@ const NextCard = (props) => {
                 // </div>           
                 //     </div>
 
-                    <div className='nextcard max-sm:pt-[10px]'>
+                    <Link className=' rounded-3xl p-1'  onClick={document.location.reload} to={`/home/videos/${id}`}><div className='nextcard max-sm:pt-[10px]'>
         <Iframe  className='max-w-[250px] max-sm:max-w-[350px] w-[100%] rounded-2xl' src={`https://www.youtube.com/embed/${id}`} ></Iframe>
 
         <div className='flex flex-col justify-between ml-[10px]'>
@@ -40,14 +43,14 @@ const NextCard = (props) => {
         <div>
         <p className='font-normal text-[15px] opacity-[0.4]'>{name}</p>
         <div className='flex justify-between'>
-        <Link to={`/videos/${id}`}>
-                          View More
-                   </Link>
+        
+                         
+                   
         <p className='font-normal text-[15px] opacity-[0.4]'>{data}</p>
         </div>
         </div>
         </div>
-        </div>
+        </div></Link>
   )
 }
 

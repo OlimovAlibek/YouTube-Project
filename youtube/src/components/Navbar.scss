@@ -1,4 +1,22 @@
 
+
+
+:root {
+  --blue: blue;
+  --white: white;
+}
+
+
+.Navbar.light {
+    --background-color: var(--white)
+    --text-color: var(--blue)
+}
+
+.Navbar.dark {
+  --background-color: var(--blue)
+  --text-color: var(--white)
+}
+
   .inputmy {
     background: url("../images/search.png") no-repeat;
     background-position: right;

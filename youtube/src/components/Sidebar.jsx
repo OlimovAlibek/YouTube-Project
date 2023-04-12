@@ -28,10 +28,12 @@ import {FiSettings} from "react-icons/fi"
 import {RiFilePaper2Line} from "react-icons/ri"
 
 
-const Sidebar = () => {
-  return (
-    <div className='Sidebar  float-left bg-[#1F2022]  w-[225px] max-sm:max-w-[640px] max-sm:w-[100%]  text-white px-[32px] max-sm:px-[22px] py-[22px] max-sm:py-[11px] inline-block  border-gray-600 max-sm:flex max-sm:gap-12'>
+const Sidebar = (props) => {
 
+
+
+  return (
+    <div style={props.style} className='Sidebar  float-left bg-[#1F2022]  w-[225px] max-sm:max-w-[640px] max-sm:w-[100%]  text-white px-[32px] max-sm:px-[22px] py-[22px] max-sm:py-[11px] inline-block  border-gray-600 max-sm:flex max-sm:gap-12'>
 
         <NavLink className='hover:text-[red]' to={'/home'}>
         <div className='home flex max-sm:flex-col  max-sm:items-center max-sm:justify-center max-sm:pl-3'>

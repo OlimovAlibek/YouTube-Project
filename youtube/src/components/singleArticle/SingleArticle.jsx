@@ -16,7 +16,7 @@ import nextvideo2 from "../../images/nextvideo2.png"
 import nextvideo3 from "../../images/nextvideo3.png"
 
 
-const SingleArticle = () => {
+const SingleArticle = (props) => {
 
 
     const [container, setContainer] = useState([])
@@ -32,7 +32,7 @@ const SingleArticle = () => {
 const options = {
 method: 'GET',
 headers: {
-'X-RapidAPI-Key': '31be749a57mshfda87889ccc91e2p187ebfjsnb135018fb433',
+'X-RapidAPI-Key': '161b977ddcmshabac1ab30e5a9fbp1cf04bjsn9964ce037e41',
 'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
 }
 };
@@ -47,14 +47,11 @@ fetch(`https://youtube-v31.p.rapidapi.com/videos?part=contentDetails%2Csnippet%2
 } 
 
 useEffect(() => {
-  fetchMe()
+  fetchMe(), fetchMe2()
 }, []);
 
 
 
-useEffect(() => {
-        fetchMe2()
-    }, [])
 
     
 
@@ -65,12 +62,12 @@ const fetchMe2 = () => {
     const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '31be749a57mshfda87889ccc91e2p187ebfjsnb135018fb433',
+		'X-RapidAPI-Key': '161b977ddcmshabac1ab30e5a9fbp1cf04bjsn9964ce037e41',
 		'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
 	}
 };
 
-fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UCb2HGwORFBo94DmRx4oLzow&part=snippet%2Cid&order=date&maxResults=5', options)
+fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UCd8iY-kEHtaB8qt8MH--zGw&part=snippet%2Cid&order=date&maxResults=5', options)
 	.then(response => response.json())
 	.then(data => {
         setContainer2(data.items)
@@ -83,7 +80,7 @@ fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UCb2HGwORFBo94DmRx4oL
 
 
   return (
-    <div className='Channel ml-[220px] max-sm:ml-[0px] max-w-[1100px]  container mx-auto pt-[70px] p-[10px]  text-white'>
+    <div style={props.style} className='Channel ml-[220px] max-sm:ml-[0px] max-w-[1100px]  container mx-auto pt-[10px] p-[10px]  text-white'>
     {/* <div className='videocard mt-[500px] ml-[300px] min-w=[250px]'>
                     <Iframe  className=' rounded-2xl' src={`https://www.youtube.com/embed/${id}`} ></Iframe>
                     <h1 className='text-white text-base mt-[10px]'></h1>
@@ -96,7 +93,7 @@ fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UCb2HGwORFBo94DmRx4oL
 
 
         <div >
-    <div className='leftpart float-left max-sm:float-none max-w-[800px] overflow-y-auto'>
+    <div style={props.style} className='leftparttt float-left max-sm:float-none max-w-[800px] overflow-y-auto'>
     <Iframe  className=' rounded-2xl max-w-[800px] w-[100%] h-[400px] max-sm:h-[200px]' src={`https://www.youtube.com/embed/${id}`} ></Iframe>
                     
     {
@@ -137,11 +134,14 @@ fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UCb2HGwORFBo94DmRx4oL
     
     </div>
     </div>
-    <div className='rightpart text-white max-sm:pt-[30px] float-right max-sm:float-none max-sm:mx-auto  max-w-[250px] w-[100%] max-sm:max-w-[350px] overflow-y-auto'>
+    <div style={props.style} className='rightpart text-white max-sm:pt-[30px] float-right max-sm:float-none max-sm:mx-auto  max-w-[250px] w-[100%] max-sm:max-w-[350px] overflow-y-auto'>
     <div className='flex justify-between items-center'>
+    <div className='flex items-center'>
     <h1 className='font-bold text-[36px]'>Next</h1>
+    <span className='text-[10px] text-gray-400 ml-[5px]'>Recommended</span>
+    </div>
     <div>
-    <label className='font-bold text-[16px]' htmlFor="">AUTOPLAY</label>
+    <label className='font-bold text-[13px]' htmlFor="">AUTOPLAY</label>
     <input className='ml-[5px]' type="checkbox" />
     </div>
     </div>

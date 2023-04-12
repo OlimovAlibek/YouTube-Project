@@ -31,7 +31,7 @@ import Iframe from 'react-iframe'
 
 
 
-const Home = () => {
+const Home = (props) => {
 
     
 
@@ -58,12 +58,12 @@ const fetchMe = () => {
     const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '31be749a57mshfda87889ccc91e2p187ebfjsnb135018fb433',
+		'X-RapidAPI-Key': '161b977ddcmshabac1ab30e5a9fbp1cf04bjsn9964ce037e41',
 		'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
 	}
 };
 
-fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UCb2HGwORFBo94DmRx4oLzow&part=snippet%2Cid&order=date&maxResults=5', options)
+fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UC_BaxRhNREI_V0DVXjXDALA&part=snippet%2Cid&order=date&maxResults=5', options)
 	.then(response => response.json())
 	.then(data => {
         setContainer(data.items)
@@ -99,12 +99,12 @@ const fetchMe3 = () => {
     const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '31be749a57mshfda87889ccc91e2p187ebfjsnb135018fb433',
+		'X-RapidAPI-Key': '161b977ddcmshabac1ab30e5a9fbp1cf04bjsn9964ce037e41',
 		'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
 	}
 };
 
-fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UC3PdiRW5dUA4V70ueeR1eHA&part=snippet%2Cid&order=date&maxResults=5', options)
+fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UCd8iY-kEHtaB8qt8MH--zGw&part=snippet%2Cid&order=date&maxResults=5', options)
 	.then(response => response.json())
 	.then(data => {
         setContainer3(data.items)
@@ -132,7 +132,12 @@ fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UC3PdiRW5dUA4V70ueeR1
 
 
 
+const [dark, setDark] = useState(false);
 
+const theme = {
+  backgroundColor: dark ? 'white' : "#1F2022" ,
+  color: dark ? '#1F2022' : 'white'
+}
   
   
   
@@ -141,11 +146,12 @@ fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UC3PdiRW5dUA4V70ueeR1
   return (
     <div>
 
-    <div  className='Home bg-[#1F2022] inline-block max-w-[1118px] w-[100%] py-[15px] pb-[27px] mt-[60px] float-right'>
+    <div className='Home  inline-block max-w-[1118px] w-[100%] pb-[15px] pb-[27px] mt-[0px] float-right'>
         <div className='channeltop flex justify-between px-[25px]    items-center max-sm:hidden'>
             <div className='flex items-center'>
-            <img src={channelavatar}></img>
-            <span className='text-2xl text-white ml-[20px]'>Dollie Blair</span>
+            <img className='w-[50px] h-[50px] rounded-[50%]' src={'https://yt3.googleusercontent.com/ytc/AGIKgqNlddeFNLTaH76O395jMjsksdKUioCq7EewaDDtusI=s900-c-k-c0x00ffffff-no-rj'}></img>
+            <span  className='text-2xl  ml-[20px]'>Porsche</span>
+            <button onClick={() => setDark(prevdark => !prevdark)}>e</button>
             </div>
             <div className='flex gap-1 '>
             <IconContext.Provider value={{ color: 'grey', size: '30px'  }}>
@@ -163,7 +169,7 @@ fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UC3PdiRW5dUA4V70ueeR1
         {
             container.map((videos) => {
                 return (
-                    <Card key={videos.id.videoId} id={videos.id.videoId} data={videos.snippet.publishedAt} title={videos.snippet.title} name={videos.snippet.channelTitle}/>
+                    <Card style={theme} key={videos.id.videoId} id={videos.id.videoId} data={videos.snippet.publishedAt} title={videos.snippet.title} name={videos.snippet.channelTitle}/>
 
                 )
             })
@@ -186,9 +192,9 @@ fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UC3PdiRW5dUA4V70ueeR1
     
       
 
-        <div className='recommended max-sm:hidden'>
+        <div className='recommended max-sm:hidden mt-[20px]'>
         <div className='recommendtop flex justify-between pr-[25px]'>
-        <span className='text-2xl text-white ml-[20px]'>Recommended</span>
+        <span style={theme} className='text-2xl text-white ml-[20px]'>Recommended</span>
         <div className='flex gap-1 '>
             <IconContext.Provider value={{ color: 'grey', size: '30px'  }}>
                 <BsFillArrowLeftCircleFill/>
@@ -203,7 +209,7 @@ fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UC3PdiRW5dUA4V70ueeR1
         {
             container3.map((videos) => {
                 return (
-                    <RecomendedCard key={videos.id.videoId} id={videos.id.videoId} data={videos.snippet.publishedAt} title={videos.snippet.title} name={videos.snippet.channelTitle}/>
+                    <RecomendedCard style={theme} key={videos.id.videoId} id={videos.id.videoId} data={videos.snippet.publishedAt} title={videos.snippet.title} name={videos.snippet.channelTitle}/>
 
                 )
             })
@@ -223,10 +229,10 @@ fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UC3PdiRW5dUA4V70ueeR1
         </div>
 
 
-        <div className='channeltop max-sm:hidden flex justify-between px-[25px]    items-center'>
+        <div className='channeltop max-sm:hidden flex justify-between px-[25px] mt-[20px]   items-center'>
             <div className='flex items-center'>
-            <img src={recchannel}></img>
-            <span className='text-2xl text-white ml-[20px]'>Food & Drink</span>
+            <img className='w-[50px] h-[50px] rounded-[50%]' src={'https://yt3.googleusercontent.com/VqBhWCENsa_1avwbA6xRI3TLS_oqq7iuD8pzstw9QS6G9zbRvi9Ki8R39Iq4Z9Y2HK9M5PHSag=s900-c-k-c0x00ffffff-no-rj'}></img>
+            <span style={theme} className='text-2xl text-white ml-[20px]'>Ferrari</span>
             <span className='text-base text-gray-400 ml-[20px]'>Recommended channel for you</span>
             </div>
             <div className='flex items-center gap-7'>
@@ -247,7 +253,7 @@ fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UC3PdiRW5dUA4V70ueeR1
         {
             container3.map((videos) => {
                 return (
-                    <Card key={videos.id.videoId} id={videos.id.videoId} data={videos.snippet.publishedAt} title={videos.snippet.title} name={videos.snippet.channelTitle}/>
+                    <Card style={theme} key={videos.id.videoId} id={videos.id.videoId} data={videos.snippet.publishedAt} title={videos.snippet.title} name={videos.snippet.channelTitle}/>
 
                 )
             })
@@ -259,13 +265,12 @@ fetch('https://youtube-v31.p.rapidapi.com/search?channelId=UC3PdiRW5dUA4V70ueeR1
         
     </div>
 
-    <div className='video_wrappermobile flex flex-col mt-[20px] gap-10 px-[25px] min-[640px]:hidden ' >
+    <div className='video_wrappermobile flex flex-col mt-[20px] gap-10 px-[25px]  ' >
         
-
     {
             container.map((videos) => {
                 return (
-                    <MobileCard key={videos.id.videoId} id={videos.id.videoId} data={videos.snippet.publishedAt} title={videos.snippet.title} name={videos.snippet.channelTitle}/>
+                    <MobileCard style={theme} key={videos.id.videoId} id={videos.id.videoId} data={videos.snippet.publishedAt} title={videos.snippet.title} name={videos.snippet.channelTitle}/>
 
                 )
             })
